@@ -4,7 +4,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         try {
-            chekAuthorizationData("werR%___", "kjhgyguy", "kjhgyguy");
+            chekAuthorizationData("yuioplkjhgfdsaz", "kjhgyguy", "kjhgyguy");
         } catch (WrongLoginException exception){
             System.out.println(exception);
         } catch (WrongPasswordException exception){
@@ -20,23 +20,8 @@ public class Main {
         }
     }
     public static boolean checkString(String string){// проверка строки: true - если удовлетворяет условиям
-        if (string.length() > 20) {
-            return false;
-        }
-        String allowedSymbols = "0123456789abcdefghijklmnoprstuvwxyz_";
-        string = string.toLowerCase();
-        for (int i = 0; i < string.length(); i++) {
-            Boolean forbiddenSymbol = true;
-            for (int j = 0; j < allowedSymbols.length(); j++) {
-                if(string.charAt(i) == allowedSymbols.charAt(j)){
-                    forbiddenSymbol = false;
-                }
-            }
-            if(forbiddenSymbol){
-                return false;
-            }
-        }
-        return true;
+    Boolean result = string.matches("\\w{1,20}");
+    return result;
     }
 
 }
